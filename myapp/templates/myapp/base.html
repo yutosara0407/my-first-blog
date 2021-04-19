@@ -13,7 +13,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light m-5">
-        <a class="navbar-brand " href="http://127.0.0.1:8000/myapp/">DELIGHT</a>
+        <a class="navbar-brand " href="{% url 'myapp:index' %}">DELIGHT メンバー管理</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,13 +21,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="http://127.0.0.1:8000/myapp/">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'myapp:index' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:8000/myapp/about">about</a>
+              <a class="nav-link" href="{% url 'myapp:about' %}">about</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:8000/myapp/info">info</a>
+                <a class="nav-link" href="{% url 'myapp:info' %}">info</a>
               </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">disabled</a>
@@ -35,20 +35,9 @@
           </ul>
         </div>
       </nav>
+    <div class="container">
       {% block content %}
       {% endblock %}
-    <div class="container">
-        <div class="row">
-            <div class="col-4 bg-primary">
-                <p>一番左のcol-4</p>
-            </div>
-            <div class="col-4 bg-success">
-                <p>真ん中のcol-4</p>
-            </div>
-            <div class="col-4 bg-info">
-                <p>一番右のcol-4</p>                
-            </div>
-    </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

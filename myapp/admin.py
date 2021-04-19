@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Member, Circle, Gymnasium
 
-# Register your models here.
+admin.site.register(Member)
+admin.site.register(Circle)
+admin.site.register(Gymnasium)

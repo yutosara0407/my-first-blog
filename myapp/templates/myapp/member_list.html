@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}メンバー管理{% endblock %}
+
+
+{% block content %}
+<form action="" method="GET">
+{{form}}
+<button type="submit">検索</button>
+</form>
+<table class="table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>氏名</th>
+        <th>ニックネーム</th>
+        <th>メール</th>
+        <th>サークル</th>
+        <th>登録日時</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for member in member_list %}
+      <tr>
+        <th scope="row">{{member.pk}}</th>
+        <td>{{member.name}}</td>
+        <td>{{member.nickname}}</td>
+        <td>{{member.email}}</td>
+        <td>{% for circle in member.circle.all %}{{circle}} {% endfor %}</td>
+        <td>{{member.created_at}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  
+
+{% endblock %}
