@@ -14,6 +14,12 @@ class Gymnasium(models.Model):
     def __str__(self):
         return self.name
 
+class MemberImage(models.Model):
+    member_image = models.ImageField(upload_to='member_image/')
+    created_at = models.DateTimeField('作成日', default=timezone.now)
+    
+    
+
 class Member(models.Model):
     name = models.CharField('氏名', max_length=20)
     nickname = models.CharField('ニックネーム', max_length=20)
@@ -21,7 +27,8 @@ class Member(models.Model):
     circle = models.ManyToManyField(
         Circle, verbose_name='サークル',
     )
+    member_image = models.ForeignKey(MemberImage, verbose_name='メンバーイメージ', on_delete=models.PROTECT, default='')
     created_at = models.DateTimeField('登録日時', default=timezone.now)
 
     def __str__(self):
-        return'{0}{1}{2}'.format(self.name, self.nickname, self.circle)
+        return'{0}({1})'.format(self.name, self.nickname)

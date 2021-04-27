@@ -1,6 +1,6 @@
 from django.views import generic
-from .forms import SearchForm
-from .models import Member
+from .forms import SearchForm, UpLoadMemberImageForm
+from .models import Member, MemberImage
 
 class IndexView(generic.ListView):
     model = Member
@@ -29,3 +29,20 @@ class AboutView(generic.TemplateView):
 
 class InfoView(generic.TemplateView):
     template_name = 'myapp/info.html'
+
+
+def edit_member_image(request):
+    if request.method != 'POST':
+        form = UpLoadMemberImageForm()
+    else:
+        form = UpLoadMemberImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            member_image = form.cleaned_data['member_image']
+            user_profile = UserProfile()
+            user_profile.member_image = member_image
+            user_profile.save()
+    
+    context = {
+        'form': form
+    }
+    return render(request, 'myapp/templates/member_list.html', context)

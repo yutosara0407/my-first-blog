@@ -1,5 +1,6 @@
 from django import forms
-from .models import Member, Circle
+from .models import Member, Circle, MemberImage
+from PIL import Image
 
 
 class SearchForm(forms.Form):
@@ -8,3 +9,11 @@ class SearchForm(forms.Form):
 
     circle = forms.ModelChoiceField(
         queryset=Circle.objects, label='サークル', required=False) 
+
+class MemberImageForm(forms.ModelForm):
+    class Meta:
+        model = MemberImage
+        fields = ('member_image',)
+
+class UpLoadMemberImageForm(forms.Form):
+    member_image = forms.ImageField(required=True)
