@@ -15,7 +15,7 @@ class Gymnasium(models.Model):
         return self.name
 
 class MemberImage(models.Model):
-    member_image = models.ImageField(upload_to='member_image/')
+    member_image = models.ImageField(upload_to='member_image/', null=True)
     created_at = models.DateTimeField('作成日', default=timezone.now)
     
     

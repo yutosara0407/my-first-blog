@@ -46,3 +46,30 @@ def edit_member_image(request):
         'form': form
     }
     return render(request, 'myapp/templates/member_list.html', context)
+
+
+class MemberImageListView(generic.ListView):
+    model = MemberImage
+    context_object_name = 'memberimage_context_list'
+
+class MemberImageCreateView(generic.CreateView):
+    model = MemberImage
+    fields = ['titlefield', 'filefield']
+    success_url = '/memberimage'
+    template_name = 'memberimage/memberimage_create.html'
+
+class MemberImageDetailView(generic.DetailView):
+    model = MemberImage
+    template_name = 'memberimage/memberimage_detail.html'
+    context_object_name = 'memberimage_context'
+
+class MemberImageUpdateView(generic.UpdateView):
+    model = MemberImage
+    fields = ['titlefield', 'filefield']
+    success_url = '/memberimage'
+    template_name = 'memberimage/memberimage_update.html'
+
+class MemberImageDeleteView(generic.DeleteView):
+    model = MemberImage
+    success_url = '/memberimage'
+    template_name = 'memberimage/memberimage_delete.html'
