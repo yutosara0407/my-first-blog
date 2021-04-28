@@ -27,7 +27,7 @@ class Member(models.Model):
     circle = models.ManyToManyField(
         Circle, verbose_name='サークル',
     )
-    member_image = models.ForeignKey(MemberImage, verbose_name='メンバーイメージ', on_delete=models.PROTECT, default='')
+    member_image = models.ForeignKey(MemberImage, verbose_name='メンバーイメージ', on_delete=models.PROTECT, default='', null=True)
     created_at = models.DateTimeField('登録日時', default=timezone.now)
 
     def __str__(self):
