@@ -55,7 +55,7 @@ class MemberImageListView(generic.ListView):
 class MemberImageCreateView(generic.CreateView):
     model = MemberImage
     fields = ['member_image']
-    success_url = '/memberimage'
+    success_url = ''
     template_name = 'myapp/memberimage_create.html'
 
 class MemberImageDetailView(generic.DetailView):
@@ -66,10 +66,10 @@ class MemberImageDetailView(generic.DetailView):
 class MemberImageUpdateView(generic.UpdateView):
     model = MemberImage
     fields = ['member_image']
-    success_url = '/memberimage'
+    success_url = ''
     template_name = 'myapp/memberimage_update.html'
 
 class MemberImageDeleteView(generic.DeleteView):
     model = MemberImage
-    success_url = '/memberimage'
+    success_url = ''
     template_name = 'myapp/memberimage_delete.html'
