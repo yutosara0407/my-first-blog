@@ -54,22 +54,22 @@ class MemberImageListView(generic.ListView):
 
 class MemberImageCreateView(generic.CreateView):
     model = MemberImage
-    fields = ['titlefield', 'filefield']
+    fields = ['member_image']
     success_url = '/memberimage'
-    template_name = 'memberimage/memberimage_create.html'
+    template_name = 'myapp/memberimage_create.html'
 
 class MemberImageDetailView(generic.DetailView):
     model = MemberImage
-    template_name = 'memberimage/memberimage_detail.html'
+    template_name = 'myapp/memberimage_detail.html'
     context_object_name = 'memberimage_context'
 
 class MemberImageUpdateView(generic.UpdateView):
     model = MemberImage
-    fields = ['titlefield', 'filefield']
+    fields = ['member_image']
     success_url = '/memberimage'
-    template_name = 'memberimage/memberimage_update.html'
+    template_name = 'myapp/memberimage_update.html'
 
 class MemberImageDeleteView(generic.DeleteView):
     model = MemberImage
     success_url = '/memberimage'
-    template_name = 'memberimage/memberimage_delete.html'
+    template_name = 'myappd/memberimage_delete.html'
