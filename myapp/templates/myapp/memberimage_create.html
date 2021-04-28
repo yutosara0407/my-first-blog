@@ -1,8 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}DELIGHTのcreate{% endblock %}
+
+{% block content %}
 <h1>ファイルのアップロード</h1>
 
 <form method = "post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.titlefield }}
     {{ form.imagefield }}
     <input type = "submit" value = "Create" />
 </form>
+{% endblock %}

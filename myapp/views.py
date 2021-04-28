@@ -72,4 +72,4 @@ class MemberImageUpdateView(generic.UpdateView):
 class MemberImageDeleteView(generic.DeleteView):
     model = MemberImage
     success_url = '/memberimage'
-    template_name = 'myappd/memberimage_delete.html'
+    template_name = 'myapp/memberimage_delete.html'
